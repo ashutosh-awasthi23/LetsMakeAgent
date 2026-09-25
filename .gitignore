@@ -1,2 +1,4 @@
 .env
 myagent/
+*.db
+__pycache__/
