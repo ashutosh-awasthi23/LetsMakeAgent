@@ -4,9 +4,7 @@ from pydantic import BaseModel
 from langfuse.openai import OpenAI
 
 
-
 load_dotenv()
-
 client = OpenAI()
 
 class ExpenseRecord(BaseModel):
