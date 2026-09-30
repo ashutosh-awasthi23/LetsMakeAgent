@@ -5,3 +5,5 @@ langfuse
 pandas
 fastapi
 uvicorn
+pillow
+groq
