@@ -12,7 +12,7 @@ class VisionAgent:
     def __init__(self):
         self.client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
         # Groq ka vision model
-        self.model = "llama-3.2-90b-vision-preview"
+        self.model = "qwen/qwen3.8-27b"
 
     def encode_image(self, image_path):
         with open(image_path, "rb") as image_file:
@@ -37,14 +37,18 @@ class VisionAgent:
                             },
                             "category": {
                                 "type": "string", 
-                                "description": "The guessed category of the expense (e.g., Groceries, Dining, Utilities)."
+                                "description": "The guessed category of the expense."
                             },
                             "description": {
                                 "type": "string", 
                                 "description": "A very short description of the purchased items."
+                            },
+                            "date": {
+                                "type": "string",
+                                "description": "The date on the receipt in YYYY-MM-DD format. If no date is found on the receipt, output today's date."
                             }
                         },
-                        "required": ["amount", "category", "description"]
+                        "required": ["amount", "category", "description", "date"] 
                     }
                 }
             }
